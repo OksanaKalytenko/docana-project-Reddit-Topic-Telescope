@@ -1,0 +1,474 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="Llama.svg">
+    <title>LLama Plots</title>
+    <meta name="description" content="Plots by our research group (Llamas) about topics and sentiment in the Sub-Reddit r/ExplainLikeImFive">
+
+    <style>
+      html {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      body {
+        margin: 0px;
+      }
+
+      .legend-text-hidden {
+        opacity: 0.5!important;
+      }
+
+      .llama:nth-of-type(1) {
+        animation-delay: 0s;
+        animation-duration: 2s;
+      }
+      .llama:nth-of-type(2) {
+        --index: 1;
+        animation-delay: 2s;
+        animation-duration: 3s;
+      }
+      .llama:nth-of-type(3) {
+        --index: 2;
+        animation-delay: 1s;
+        animation-duration: 2s;
+      }
+      .llama:nth-of-type(4) {
+        --index: 3;
+        animation-delay: 3.5s;
+        animation-duration: 2.5s;
+      }
+      .llama:nth-of-type(5) {
+        --index: 4;
+        animation-delay: 2.5s;
+        animation-duration: 3.5s;
+      }
+      .llama:nth-of-type(6) {
+        --index: 5;
+        animation-delay: 2s;
+        animation-duration: 1.5s;
+      }
+      .llama:nth-of-type(7) {
+        --index: 6;
+        animation-delay: 1.5s;
+        animation-duration: 3s;
+      }
+      .llama:nth-of-type(8) {
+        --index: 7;
+        animation-delay: 0s;
+        animation-duration: 2s;
+      }
+      .llama:nth-of-type(9) {
+        --index: 8;
+        animation-delay: 3.5s;
+        animation-duration: 2.5s;
+      }
+      .llama:nth-of-type(10) {
+        --index: 9;
+        animation-delay: 0s;
+        animation-duration: 3.5s;
+      }
+      .llama:nth-of-type(11) {
+        --index: 10;
+        animation-delay: 1s;
+        animation-duration: 1.5s;
+      }
+      .llama:nth-of-type(12) {
+        --index: 11;
+        animation-delay: 2.5s;
+        animation-duration: 3s;
+      }
+      .llama:nth-of-type(13) {
+        --index: 12;
+        animation-delay: 3s;
+        animation-duration: 2s;
+      }
+
+      .llama {
+        position: absolute;
+        bottom: 10%;
+        --initial-position: calc(1% + (var(--index, 0)*8%));
+        left: var(--initial-position);
+        animation: jump ease-in-out infinite;
+        opacity: 0;
+      }
+
+      @keyframes jump {
+        0% {
+          left: var(--initial-position);
+          bottom: 10%;
+          opacity: 0;
+        }
+
+        15% {
+          bottom: 30%;
+          left: calc(var(--initial-position) + 1%);
+          animation-timing-function: linear;
+          opacity: 1;
+        }
+
+        30% {
+          bottom: 35%;
+          left: calc(var(--initial-position) + 1.5%);
+          animation-timing-function: linear;
+        }
+
+        45% {
+          bottom: 35%;
+          left: calc(var(--initial-position) + 2%);
+          animation-timing-function: linear;
+        }
+
+        60% {
+          bottom: 35%;
+          left: calc(var(--initial-position) + 2.5%);
+          animation-timing-function: linear;
+        }
+
+        75% {
+          bottom: 30%;
+          left: calc(var(--initial-position) + 3%);
+          animation-timing-function: linear;
+          opacity: 1;
+        }
+        
+        100% {
+          bottom: 10%;
+          left: calc(var(--initial-position) + 4%);
+          opacity: 0;
+        }
+      }
+
+      /* body {
+        background-image: url(Llama.svg);
+      } */
+
+      header {
+        position: relative;
+        width: 100%;
+        background: seagreen;
+        overflow: hidden;
+      }
+
+      #header-background {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* background-image: url(Llama.svg); */
+      }
+
+      h1 {
+        z-index: 100;
+        font-weight: 900;
+        color: white;
+      }
+
+      #container {
+        display: grid;
+        grid-template: 
+            "doc doc" auto
+            "hierarchy vis" auto
+            "hierarchy dist" auto
+            "wordcloud dist" auto 
+            "wordcloud ." auto / 1fr 1fr;
+      }
+
+      #topics_visualization_doc {
+        grid-area: doc;
+        width: 100%;
+      }
+
+      #topics_hierarchy {
+        width: 100%;
+        grid-area: hierarchy;
+      }
+
+      #topics_visualization {
+        width: 100%;
+        grid-area: vis;
+      }
+
+      #topic_distribution {
+        width: 100%;
+        min-height: 1000px;
+        grid-area: dist;
+      }
+
+      #wordcloud {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        grid-area: wordcloud;
+        overflow: hidden;
+      }
+
+      #wordcloud > * {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      @media (max-width: 800px) {
+        #container {
+          grid-template: 
+              "doc" auto
+              "hierarchy" auto
+              "vis" auto
+              "dist" auto
+              "wordcloud" auto / 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <img class="llama" src="Llama.svg"/>
+      <div id="header-background"><h1>Llama Plots</h1></div>
+    </header>
+    <div id="container">
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="plotly.js" type="text/javascript"></script>
+      <script src="data/topics_hierarchy.js" type="text/javascript"></script>
+      <script
+        src="data/topics_visualization.js"
+        type="text/javascript"
+      ></script>
+      <script
+        src="data/topics_visualization_doc.js"
+        type="text/javascript"
+      ></script>
+      <script
+        src="data/topic_distribution.js"
+        type="text/javascript"
+      ></script>
+
+      <div
+        id="topics_visualization_doc"
+        class="plotly-graph-div"
+      ></div>
+
+      <div
+        id="topics_hierarchy"
+        class="plotly-graph-div"
+      ></div>
+
+      <div
+        id="topics_visualization"
+        class="plotly-graph-div"
+      ></div>
+
+      <div
+        id="topic_distribution"
+        class="plotly-graph-div"
+      ></div>
+
+      <div id="wordcloud">
+        <img src="wordcloud_content_.png"/>
+      </div>
+
+      
+
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+
+        var plots = {};
+
+        if (document.getElementById("topics_hierarchy")) {
+          plots["topics_hierarchy"] = Plotly.newPlot(
+            "topics_hierarchy",
+            topics_hierarchy.data,
+            topics_hierarchy.settings,
+            { responsive: true }
+          );
+        }
+
+        if (document.getElementById("topics_visualization")) {
+          plots["topics_visualization"] = Plotly.newPlot(
+            "topics_visualization",
+            topics_visualization.data,
+            topics_visualization.settings,
+            { responsive: true }
+          );
+        }
+
+        if (document.getElementById("topics_visualization_doc")) {
+          plots["topics_visualization_doc"] = Plotly.newPlot(
+            "topics_visualization_doc",
+            topics_visualization_doc.data,
+            topics_visualization_doc.settings,
+            { responsive: true }
+          );
+        }
+
+        if (document.getElementById("topic_distribution")) {
+          plots["topic_distribution"] = Plotly.newPlot(
+            "topic_distribution",
+            topic_distribution.data,
+            topic_distribution.settings,
+            { responsive: true }
+          );
+        }
+
+        var visibilityStates = {};
+
+        const PULL_AMOUNT = 0.2;
+
+        function setVisibility(visibilityObject, ignorePlotKey) {
+          visibilityStates = visibilityObject;
+          let showAll = (Object.keys(visibilityObject).length <= 0);
+
+          plots["topics_visualization_doc"].then((plot) => {
+            if (ignorePlotKey !== "topics_visualization_doc") {
+              let visibilityChanged = false;
+              let currentVisible = plot.data.map((data) => data.visible);
+
+              let newData = { visible: plot.data.map((data, index) => {
+                let newValue;
+                if (showAll || data.name === 'other' || data.name in visibilityObject) {
+                  newValue = true;
+                } else {
+                  newValue = 'legendonly';
+                }
+                if (currentVisible[index] != newValue) visibilityChanged = true;
+                return newValue;
+              }) };
+              
+              if (visibilityChanged) Plotly.restyle(plot, newData);
+            }
+          });
+
+          plots["topics_visualization"].then((plot) => {
+            if (ignorePlotKey !== "topics_visualization") {
+              let colorsChanged = false;
+              let currentColors = plot.data[0].marker.color;
+              let newIndex = 0;
+              let newData = { "marker.color": [plot.data[0].customdata.map((data, index) => {
+                let newValue;
+                if (!showAll && data[1] in visibilityObject) {
+                  newValue = "red";
+                  newIndex = index;
+                } else {
+                  newValue = "#B0BEC5";
+                }
+                if (currentColors[index] != newValue) colorsChanged = true;
+                return newValue;
+              })] };
+              if (colorsChanged) {
+                Plotly.update(plot, newData);
+                Plotly.relayout(plot, { 'sliders[0].active': newIndex })
+              }
+            }
+          });
+
+          plots["topic_distribution"].then((plot) => {
+            if (ignorePlotKey !== "topic_distribution") {
+              let legendItems = document.querySelectorAll('.legendtext');
+
+              legendItems.forEach(item => {
+                if (showAll || item.textContent in visibilityObject) {
+                  item.classList.remove('legend-text-hidden'); // Add custom class
+                } else {
+                  item.classList.add('legend-text-hidden');
+                }
+              });
+
+              Plotly.restyle(plot, { pull: [plot.data[0].labels.map((label, index) => {
+                if (!showAll && label in visibilityObject) {
+                  return PULL_AMOUNT;
+                } else {
+                  return 0;
+                }
+              })] });
+            }
+          });
+
+          plots["topics_hierarchy"].then((plot) => {
+            if (ignorePlotKey !== "topics_hierarchy") {
+              let legendItems = document.querySelectorAll('.ytick text');
+
+              legendItems.forEach(item => {
+                if (showAll || item.textContent in visibilityObject) {
+                  item.classList.remove('legend-text-hidden'); // Add custom class
+                } else {
+                  item.classList.add('legend-text-hidden');
+                }
+              });
+            }
+          });
+        }
+
+        function clickHandler(eventData) {
+          let label;
+          if (eventData.label) label = eventData.label;
+          else if (eventData.points != null) {
+            let point = eventData.points[0];
+            if (point != null) {
+              if (point.label) label = point.label;
+              else if (point.customdata) label = point.customdata[1];
+            }
+          }
+          if (label == null || Object.keys(visibilityStates).length > 0) {
+            setVisibility({});
+          } else {
+            setVisibility({[label]: true});
+          }
+
+          return false;
+        }
+
+        Promise.all(Object.values(plots)).then(plotInstances => {
+          plots["topics_visualization_doc"].then((plot) => {
+            plot.on('plotly_restyle', function(eventData) {
+              if (eventData[0].visible) {
+                let visibilityObject = {};
+                let visibleNames = eventData[0].visible.map((state, index) => ({index: index, name: plot.data[index].name, visible: (state === true) })).filter(state => state.visible);
+                if (plot.data.length != visibleNames.length) {
+                  visibleNames.forEach((state) => {
+                    if (state.name !== 'other') visibilityObject[state.name] = state.visible
+                  });
+                }
+                setVisibility(visibilityObject, "topics_visualization_doc");
+              }
+            });
+          });
+
+          plots["topics_visualization"].then((plot) => {
+            plot.on('plotly_update', function(eventData) {
+              let highlightedNames = eventData.data[0]["marker.color"][0].map((color, index) => ({index: index, name: plot.data[0].customdata[index][1], highlight: (color === 'red') })).filter(state => state.highlight);
+              let highlightObject = {};
+              if (plot.data[0].customdata.length != highlightedNames.length) {
+                highlightedNames.forEach((state) => {
+                  highlightObject[state.name] = state.highlight
+                });
+              }
+              setVisibility(highlightObject, "topics_visualization");
+            });
+            plot.on('plotly_click', clickHandler);
+          });
+
+
+          plots["topic_distribution"].then((plot) => {
+            plot.on('plotly_legendclick', clickHandler);
+            plot.on('plotly_click', clickHandler);
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
