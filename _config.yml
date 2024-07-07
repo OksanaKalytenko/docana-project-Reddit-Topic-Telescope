@@ -1,6 +1,8 @@
-title: Document Analysis Semester Project
+title: Reddit Topic Telescope
 description: This repository is a GitHub Pages template for Document Analysis course projects. 
+logo: dashboard/Llama.svg
 show_downloads: True
+dashboard_url: dashboard
 plugins:
   - jekyll-relative-links
 relative_links:
