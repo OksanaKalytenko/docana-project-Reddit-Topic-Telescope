@@ -70,7 +70,7 @@ Summarize the major outcomes of your project, reflect on the research findings, 
 | Team Member  | Contributions                                             |
 |--------------|-----------------------------------------------------------|
 | Alice Smith  | Data collection, preprocessing, model training, evaluation|                                                       |
-| Bob Johnson  | ...                                                       |
+| Mariia Pyvovar  | Sentiment analysis                                                       |
 | ...          | ...                                                       |
 
 ## References
