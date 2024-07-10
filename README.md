@@ -60,16 +60,17 @@ pip install -r requirements.txt
 ```
 ]
 
-Topic Modeling Setup__
+>Topic Modeling Setup
 
-Sentiment Analysis Setup__ 
+>Sentiment Analysis Setup 
 
-Network Analysis Setup__  
-software:__   
-hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)__  
-Python version: Python 3.9.13__    
+>Network Analysis Setup  
+>software:   
+>hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)  
+>Python version: Python 3.9.13    
 
-To install Python libraries with the correct version run the following command in the terminal:__
+>To install Python libraries with the correct version run the following command in the terminal:
+>
 ```bash
 pip install -r requirements.txt  
 ```
@@ -82,11 +83,11 @@ pip install -r requirements.txt
 
 [Present the findings from your experiments, supported by visual or statistical evidence. Discuss how these results address your main research question.]
 
-Topic Modeling Setup__
+Topic Modeling Setup
 
-Sentiment Analysis Setup__ 
+Sentiment Analysis Setup 
 
-Network Analysis__
+Network Analysis
 
 
 ## Conclusion
