@@ -60,17 +60,16 @@ pip install -r requirements.txt
 ```
 ]
 
->Topic Modeling Setup
+Topic Modeling Setup
 
->Sentiment Analysis Setup 
+Sentiment Analysis Setup 
 
->Network Analysis Setup  
->software:   
->hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)  
->Python version: Python 3.9.13    
+Network Analysis Setup  
+software:   
+hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)  
+Python version: Python 3.9.13    
 
->To install Python libraries with the correct version run the following command in the terminal:
->
+To install Python libraries with the correct version run the following command in the terminal:
 ```bash
 pip install -r requirements.txt  
 ```
