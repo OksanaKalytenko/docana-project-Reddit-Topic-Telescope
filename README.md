@@ -71,7 +71,7 @@ Summarize the major outcomes of your project, reflect on the research findings, 
 
 | Team Member  | Contributions                                             |
 |--------------|-----------------------------------------------------------|
-| Oksana Ka | Data Preprocessing, Topic Modeling, Dashboard Creation&Design|                                                       |
+| Oksana Kalytenko | Data Preprocessing, Topic Modeling, Dashboard Creation&Design|                                                       |
 | Mariia Pyvovar  | Data Preprocessing, Sentiment Analysis                                                       |
 | Alisea Stroligo       | Data Preprocessing, Network Analysis                                                    |
 
