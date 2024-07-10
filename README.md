@@ -25,7 +25,7 @@ Follow this steps to set up your project report:
 
 # Reddit Topic Telescope
 
-_Group members: Oksana Kalytenko, Mariia Pyvovar, Alisea Stroligo
+Group members: Oksana Kalytenko, Mariia Pyvovar, Alisea Stroligo
 
 ## Introduction
 
@@ -71,9 +71,9 @@ Summarize the major outcomes of your project, reflect on the research findings, 
 
 | Team Member  | Contributions                                             |
 |--------------|-----------------------------------------------------------|
-| Alice Smith  | Data collection, preprocessing, model training, evaluation|                                                       |
-| Bob Johnson  | ...                                                       |
-| ...          | ...                                                       |
+| Oksana Ka | Data Preprocessing, Topic Modeling, Dashboard Creation&Design|                                                       |
+| Mariia Pyvovar  | Data Preprocessing, Sentiment Analysis                                                       |
+| Alisea Stroligo       | Data Preprocessing, Network Analysis                                                    |
 
 ## References
 
