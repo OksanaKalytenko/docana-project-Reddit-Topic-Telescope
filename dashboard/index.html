@@ -171,7 +171,8 @@
             "hierarchy dist" auto
             "wordcloud dist" auto 
             "wordcloud sent" auto
-            "senttopic senttopic" auto / 1fr 1fr;
+            "senttopic senttopic" auto
+            "network network" auto / 1fr 1fr;
       }
 
       #topics_visualization_doc {
@@ -215,6 +216,31 @@
         overflow: hidden;
       }
 
+      #network {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        grid-area: network;
+        overflow: hidden;
+      }
+
+      #network > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline: 20px;
+      }
+
+      #network > * > * {
+        flex-shrink: 1;
+      }
+
+      #network img {
+        max-width: 100%;
+      }
+
       #wordcloud > * {
         width: 100%;
         max-width: 600px;
@@ -229,7 +255,12 @@
               "dist" auto
               "wordcloud" auto
               "sent" auto
-              "senttopic" auto / 1fr;
+              "senttopic" auto
+              "network" auto / 1fr;
+        }
+
+        #network > * {
+          flex-wrap: wrap;
         }
       }
     </style>
@@ -312,6 +343,13 @@
         id="sentiment_distribution_topic_ratio"
         class="plotly-graph-div"
       ></div>
+
+      <div id="network">
+        <div>
+          <div><img src="AuthorNetworkGraph_Topics+VADER.jpg"/></div>
+          <div><img src="Legend_AuthorNetworkGraph.jpg"/></div>
+        </div>
+      </div>
 
       
 
