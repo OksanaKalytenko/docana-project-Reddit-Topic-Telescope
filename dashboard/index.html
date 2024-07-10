@@ -15,7 +15,7 @@
         margin: 0px;
       }
 
-      .legend-text-hidden {
+      .legend-text-hidden, .bar-hidden {
         opacity: 0.5!important;
       }
 
@@ -170,7 +170,8 @@
             "hierarchy vis" auto
             "hierarchy dist" auto
             "wordcloud dist" auto 
-            "wordcloud ." auto / 1fr 1fr;
+            "wordcloud sent" auto
+            "senttopic senttopic" auto / 1fr 1fr;
       }
 
       #topics_visualization_doc {
@@ -192,6 +193,16 @@
         width: 100%;
         min-height: 1000px;
         grid-area: dist;
+      }
+
+      #sentiment_distribution {
+        width: 100%;
+        grid-area: sent;
+      }
+
+      #sentiment_distribution_topic_ratio {
+        width: 100%;
+        grid-area: senttopic;
       }
 
       #wordcloud {
@@ -216,7 +227,9 @@
               "hierarchy" auto
               "vis" auto
               "dist" auto
-              "wordcloud" auto / 1fr;
+              "wordcloud" auto
+              "sent" auto
+              "senttopic" auto / 1fr;
         }
       }
     </style>
@@ -257,6 +270,14 @@
         src="data/topic_distribution.js"
         type="text/javascript"
       ></script>
+      <script
+        src="data/sentiment_distribution_vader.js"
+        type="text/javascript"
+      ></script>
+      <script
+        src="data/sentiment_distribution_per_topic_ratio.js"
+        type="text/javascript"
+      ></script>
 
       <div
         id="topics_visualization_doc"
@@ -281,6 +302,16 @@
       <div id="wordcloud">
         <img src="wordcloud_content_.png"/>
       </div>
+
+      <div
+        id="sentiment_distribution"
+        class="plotly-graph-div"
+      ></div>
+
+      <div
+        id="sentiment_distribution_topic_ratio"
+        class="plotly-graph-div"
+      ></div>
 
       
 
@@ -321,6 +352,24 @@
             "topic_distribution",
             topic_distribution.data,
             topic_distribution.settings,
+            { responsive: true }
+          );
+        }
+
+        if (document.getElementById("sentiment_distribution")) {
+          plots["sentiment_distribution"] = Plotly.newPlot(
+            "sentiment_distribution",
+            sentiment_distribution.data,
+            sentiment_distribution.settings,
+            { responsive: true }
+          );
+        }
+
+        if (document.getElementById("sentiment_distribution_topic_ratio")) {
+          plots["sentiment_distribution_topic_ratio"] = Plotly.newPlot(
+            "sentiment_distribution_topic_ratio",
+            sentiment_distribution_topic_ratio.data,
+            sentiment_distribution_topic_ratio.settings,
             { responsive: true }
           );
         }
@@ -378,11 +427,11 @@
 
           plots["topic_distribution"].then((plot) => {
             if (ignorePlotKey !== "topic_distribution") {
-              let legendItems = document.querySelectorAll('.legendtext');
+              let legendItems = plot.querySelectorAll('.legendtext');
 
               legendItems.forEach(item => {
                 if (showAll || item.textContent in visibilityObject) {
-                  item.classList.remove('legend-text-hidden'); // Add custom class
+                  item.classList.remove('legend-text-hidden');
                 } else {
                   item.classList.add('legend-text-hidden');
                 }
@@ -400,13 +449,47 @@
 
           plots["topics_hierarchy"].then((plot) => {
             if (ignorePlotKey !== "topics_hierarchy") {
-              let legendItems = document.querySelectorAll('.ytick text');
+              let legendItems = plot.querySelectorAll('.ytick text');
 
               legendItems.forEach(item => {
                 if (showAll || item.textContent in visibilityObject) {
-                  item.classList.remove('legend-text-hidden'); // Add custom class
+                  item.classList.remove('legend-text-hidden');
                 } else {
                   item.classList.add('legend-text-hidden');
+                }
+              });
+            }
+          });
+
+          plots["sentiment_distribution_topic_ratio"].then((plot) => {
+            if (ignorePlotKey !== "sentiment_distribution_topic_ratio") {
+              let legendItems = plot.querySelectorAll('.xtick text');
+
+              let visibilityIndexArray = [];
+
+              legendItems.forEach(item => {
+                if (showAll || item.textContent in visibilityObject) {
+                  visibilityIndexArray.push(true);
+                  item.classList.remove('legend-text-hidden');
+                } else {
+                  visibilityIndexArray.push(false);
+                  item.classList.add('legend-text-hidden');
+                }
+              });
+
+              let barGroups = plot.querySelectorAll('.trace.bars .points');
+
+              barGroups.forEach(barGroup => {
+                if (barGroup != null) {
+                  let barItems = barGroup.querySelectorAll('.point');
+
+                  barItems.forEach((barItem, index) => {
+                    if (visibilityIndexArray[index]) {
+                      barItem.classList.remove('bar-hidden');
+                    } else {
+                      barItem.classList.add('bar-hidden');
+                    }
+                  });
                 }
               });
             }
@@ -465,6 +548,10 @@
 
           plots["topic_distribution"].then((plot) => {
             plot.on('plotly_legendclick', clickHandler);
+            plot.on('plotly_click', clickHandler);
+          });
+
+          plots["sentiment_distribution_topic_ratio"].then((plot) => {
             plot.on('plotly_click', clickHandler);
           });
         });

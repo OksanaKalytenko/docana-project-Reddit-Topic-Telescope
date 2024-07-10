@@ -1,60 +1,26 @@
-var topic_distribution = {
+var sentiment_distribution = {
   data: [
     {
+      customdata: [["positive"], ["negative"], ["neutral"]],
       domain: { x: [0.0, 1.0], y: [0.0, 1.0] },
+      hole: 0.3,
       hovertemplate:
-        "Topic=%{label}\u003cbr\u003eRatio=%{value}\u003cextra\u003e\u003c\u002fextra\u003e",
-      labels: [
-        "Economic and Financial Systems",
-        "Football Teams and Soccer Leagues",
-        "Video Frames and Camera Technology",
-        "Firearms and Public Safety",
-        "European Nations and Global Resources",
-        "Electrical Engineering and Power Systems",
-        "Middle Eastern Affairs and Religious Extremism",
-        "Immunology and Infectious Diseases",
-        "Cultural Diversity and Ethnic Backgrounds",
-        "Mathematical Concepts and Number Theory",
-        "Tobacco and Smoking Behavior",
-        "Color Perception and Visual Physiology",
-        "Linguistic",
-        "Healthcare Systems",
-        "Sleep Physiology and Brain Activity",
-        "Cinema and Filmmaking",
-        "Religion",
-        "Human Anatomy and Physiological Health",
-        "Warfare and Diplomatic Relations",
-        "Sound and Music",
-        "Political Parties and Elections",
-        "Cognitive Neuroscience",
-        "Community Posting",
-        "Law Enforcement",
-        "Telecommunications Infrastructure",
-        "Nutrition and Dietary Health",
-        "Gaming and Software Development",
-        "Physics and Cosmology",
-        "Genetics and Human Evolution",
-        "Thermodynamics and Fluid Dynamics",
-        "Political Ideologies and Economic Systems",
-      ],
+        "Sentiment=%{customdata[0]}\u003cbr\u003ePercentage=%{value}\u003cextra\u003e\u003c\u002fextra\u003e",
+      labels: ["positive", "negative", "neutral"],
       legendgroup: "",
+      marker: {
+        colors: ["rgb(135, 197, 95)", "rgb(231, 63, 116)", "rgb(153,153,153)"],
+      },
       name: "",
       showlegend: true,
-      values: [
-        0.13570528967254408, 0.01503463476070529, 0.015073992443324937,
-        0.015625, 0.016451511335012596, 0.0186161838790932, 0.01904911838790932,
-        0.019245906801007556, 0.019718198992443325, 0.02007241813602015,
-        0.021371221662468513, 0.021528652392947104, 0.02259130982367758,
-        0.02263066750629723, 0.014444269521410579, 0.024441120906801006,
-        0.026172858942065492, 0.0267632241813602, 0.029124685138539042,
-        0.029321473551637278, 0.030462846347607053, 0.03770465994962217,
-        0.0379801637279597, 0.03908217884130982, 0.04439546599496222,
-        0.04734729219143577, 0.05533690176322418, 0.0648221032745592,
-        0.07048960957178842, 0.02562185138539043, 0.013775188916876574,
-      ],
+      values: [60.76178484299992, 35.472574171716374, 3.7656409852837016],
       type: "pie",
-      textinfo: "percent",
+      hoverinfo: "label+percent+value",
+      textinfo: "percent+label",
       textposition: "inside",
+      textfont: {
+        color: "white",
+      },
     },
   ],
   settings: {
@@ -79,10 +45,7 @@ var topic_distribution = {
           },
         ],
         choropleth: [
-          {
-            type: "choropleth",
-            colorbar: { outlinewidth: 0, ticks: "" },
-          },
+          { type: "choropleth", colorbar: { outlinewidth: 0, ticks: "" } },
         ],
         histogram2d: [
           {
@@ -139,10 +102,7 @@ var topic_distribution = {
           },
         ],
         contourcarpet: [
-          {
-            type: "contourcarpet",
-            colorbar: { outlinewidth: 0, ticks: "" },
-          },
+          { type: "contourcarpet", colorbar: { outlinewidth: 0, ticks: "" } },
         ],
         contour: [
           {
@@ -180,19 +140,10 @@ var topic_distribution = {
             ],
           },
         ],
-        mesh3d: [
-          {
-            type: "mesh3d",
-            colorbar: { outlinewidth: 0, ticks: "" },
-          },
-        ],
+        mesh3d: [{ type: "mesh3d", colorbar: { outlinewidth: 0, ticks: "" } }],
         scatter: [
           {
-            fillpattern: {
-              fillmode: "overlay",
-              size: 10,
-              solidity: 0.2,
-            },
+            fillpattern: { fillmode: "overlay", size: 10, solidity: 0.2 },
             type: "scatter",
           },
         ],
@@ -214,11 +165,7 @@ var topic_distribution = {
             error_y: { color: "#2a3f5f" },
             marker: {
               line: { color: "#E5ECF6", width: 0.5 },
-              pattern: {
-                fillmode: "overlay",
-                size: 10,
-                solidity: 0.2,
-              },
+              pattern: { fillmode: "overlay", size: 10, solidity: 0.2 },
             },
             type: "bar",
           },
@@ -238,11 +185,7 @@ var topic_distribution = {
         histogram: [
           {
             marker: {
-              pattern: {
-                fillmode: "overlay",
-                size: 10,
-                solidity: 0.2,
-              },
+              pattern: { fillmode: "overlay", size: 10, solidity: 0.2 },
             },
             type: "histogram",
           },
@@ -299,14 +242,8 @@ var topic_distribution = {
         ],
         table: [
           {
-            cells: {
-              fill: { color: "#EBF0F8" },
-              line: { color: "white" },
-            },
-            header: {
-              fill: { color: "#C8D4E3" },
-              line: { color: "white" },
-            },
+            cells: { fill: { color: "#EBF0F8" }, line: { color: "white" } },
+            header: { fill: { color: "#C8D4E3" }, line: { color: "white" } },
             type: "table",
           },
         ],
@@ -314,11 +251,7 @@ var topic_distribution = {
           {
             marker: {
               line: { color: "#E5ECF6", width: 0.5 },
-              pattern: {
-                fillmode: "overlay",
-                size: 10,
-                solidity: 0.2,
-              },
+              pattern: { fillmode: "overlay", size: 10, solidity: 0.2 },
             },
             type: "barpolar",
           },
@@ -346,34 +279,14 @@ var topic_distribution = {
         plot_bgcolor: "#E5ECF6",
         polar: {
           bgcolor: "#E5ECF6",
-          angularaxis: {
-            gridcolor: "white",
-            linecolor: "white",
-            ticks: "",
-          },
-          radialaxis: {
-            gridcolor: "white",
-            linecolor: "white",
-            ticks: "",
-          },
+          angularaxis: { gridcolor: "white", linecolor: "white", ticks: "" },
+          radialaxis: { gridcolor: "white", linecolor: "white", ticks: "" },
         },
         ternary: {
           bgcolor: "#E5ECF6",
-          aaxis: {
-            gridcolor: "white",
-            linecolor: "white",
-            ticks: "",
-          },
-          baxis: {
-            gridcolor: "white",
-            linecolor: "white",
-            ticks: "",
-          },
-          caxis: {
-            gridcolor: "white",
-            linecolor: "white",
-            ticks: "",
-          },
+          aaxis: { gridcolor: "white", linecolor: "white", ticks: "" },
+          baxis: { gridcolor: "white", linecolor: "white", ticks: "" },
+          caxis: { gridcolor: "white", linecolor: "white", ticks: "" },
         },
         coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
         colorscale: {
@@ -480,63 +393,18 @@ var topic_distribution = {
         mapbox: { style: "light" },
       },
     },
-    legend: {
-      tracegroupgap: 0,
-      title: { text: "Topics" },
-      orientation: "h",
-      y: 0,
-      x: 0,
-      traceorder: "normal",
-      itemdoubleclick: false,
-    },
+    legend: { tracegroupgap: 0 },
     title: {
       font: { size: 22, color: "Black" },
-      text: "\u003cb\u003eTopic Distribution\u003c\u002fb\u003e",
+      text: "\u003cb\u003eSentiment Distribution <br>in Subreddit (VADER)\u003c\u002fb\u003e",
       x: 0.5,
       xanchor: "center",
       yanchor: "top",
     },
-    piecolorway: [
-      "rgb(102, 197, 204)",
-      "rgb(246, 207, 113)",
-      "rgb(248, 156, 116)",
-      "rgb(220, 176, 242)",
-      "rgb(135, 197, 95)",
-      "rgb(158, 185, 243)",
-      "rgb(254, 136, 177)",
-      "rgb(201, 219, 116)",
-      "rgb(139, 224, 164)",
-      "rgb(180, 151, 231)",
-      "rgb(179, 179, 179)",
-      "rgb(179,226,205)",
-      "rgb(253,205,172)",
-      "rgb(203,213,232)",
-      "rgb(244,202,228)",
-      "rgb(230,245,201)",
-      "rgb(255,242,174)",
-      "rgb(241,226,204)",
-      "rgb(204,204,204)",
-      "rgb(251,180,174)",
-      "rgb(179,205,227)",
-      "rgb(204,235,197)",
-      "rgb(222,203,228)",
-      "rgb(254,217,166)",
-      "rgb(255,255,204)",
-      "rgb(229,216,189)",
-      "rgb(253,218,236)",
-      "rgb(242,242,242)",
-      "rgb(141,211,199)",
-      "rgb(255,255,179)",
-      "rgb(190,186,218)",
-      "rgb(251,128,114)",
-      "rgb(128,177,211)",
-      "rgb(253,180,98)",
-      "rgb(179,222,105)",
-      "rgb(252,205,229)",
-      "rgb(217,217,217)",
-      "rgb(188,128,189)",
-      "rgb(204,235,197)",
-      "rgb(255,237,111)",
-    ],
+    showlegend: false,
+    margin: {
+      l: 20,
+      r: 20,
+    },
   },
 };

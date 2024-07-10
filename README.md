@@ -30,6 +30,7 @@ _Group members: Oksana Kalytenko, Mariia Pyvovar, Alisea Stroligo
 ## Introduction
 
 [Start off by setting the stage for your project. Give a brief overview of relevant studies or work that have tackled similar issues. Then, clearly describe the main question or problem your project is designed to solve.]
+
 This project analyses topics in the “ExplainLikeImFive” subreddit to understand community interests and sentiments through topic extraction and sentiment evaluation. Additionally, it incorporates network analysis to examine the connections and interactions between topics and sentiments among authors in the same subreddit.
 
 ## Dataset
@@ -70,9 +71,9 @@ Summarize the major outcomes of your project, reflect on the research findings, 
 
 | Team Member  | Contributions                                             |
 |--------------|-----------------------------------------------------------|
-| OksanaKalytenko  | Data Preprocessing, Topic Modeling Implementation, Dashboard Creation|                                                       |
-| Mariia Pyvovar  | Data Preprocessing, Sentiment Analysis                                                     |
-| Alisea Stroligo | Data Preprocessing, Network Analysis                                                    |
+| Alice Smith  | Data collection, preprocessing, model training, evaluation|                                                       |
+| Bob Johnson  | ...                                                       |
+| ...          | ...                                                       |
 
 ## References
 

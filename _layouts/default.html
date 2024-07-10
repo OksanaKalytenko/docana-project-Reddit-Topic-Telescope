@@ -17,7 +17,9 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if site.logo %}
+        {% if site.logo and site.dashboard_url %}
+          <a href="{{ site.dashboard_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
+        {% elsif site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
