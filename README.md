@@ -31,7 +31,7 @@ Group members: Oksana Kalytenko, Mariia Pyvovar, Alisea Stroligo
 
 [Start off by setting the stage for your project. Give a brief overview of relevant studies or work that have tackled similar issues. Then, clearly describe the main question or problem your project is designed to solve.]
 
-This project analyses topics in the “ExplainLikeImFive” subreddit to understand community interests and sentiments through topic extraction and sentiment evaluation. Additionally, it incorporates network analysis to examine the connections and interactions between topics and sentiments among authors in the same subreddit.
+This project analyses topics in the “ExplainLikeImFive” subreddit to understand community interests and sentiments through topic extraction and sentiment evaluation. It then combines findings from the previous two text-analysis techniques (Topic Modeling and Sentiment Analysis) to infer also non-textual properties of the dataset (e.g. general behaviors of users online).
 
 ## Dataset
 
@@ -39,7 +39,7 @@ This project analyses topics in the “ExplainLikeImFive” subreddit to underst
 
 The dataset used for analyses consists of a corpus containing preprocessed posts from the Reddit dataset (Webis-TLDR-17), available at https://huggingface.co/datasets/webis/tldr-17. From this dataset, after preprocessing, for all further analyses (Topic Modeling, Sentiment Analysis and Network Analysis) only a subset of the data was used, i.e., all content from subreddit 'explainlikeimfive'. 
 This particular subreddit was chosen due to content (we expected a variety of different topics mentioned in this particular subreddit, optimal for Topic Modeling), size (after preprocessing, this subreddit appeared among the 20 most visited subreddits, but not among the first ten, so that it provided a large amount of content but would also not be among the most computationally expensive for analyses) and finally it presented similar characteristics to other subreddits in terms of number of posts, number of authors and frequency of posts per author (i.e. important features for Network Analysis), therefore this subreddit also seemed to be a representative sample for the whole original dataset.
-The complete data from the subreddit 'explainlikeimfive' can be found in a .zip file in the code folder of our linked GitHub repository.
+The complete data from the subreddit 'explainlikeimfive' can be found in a .zip file in the code folder of our GitHub repository.
 
 ## Methods
 
@@ -60,17 +60,17 @@ pip install -r requirements.txt
 ```
 ]
 
-Topic Modeling Setup
+Topic Modeling Setup  
 
-Sentiment Analysis Setup
+Sentiment Analysis Setup  
 
-Network Analysis Setup
-software: 
-hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)
-Python version: Python 3.9.13
+Network Analysis Setup  
+software:   
+hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)  
+Python version: Python 3.9.13    
 
 To install Python libraries with the correct version run the following command in the terminal:
-pip install -r requirements.txt
+pip install -r requirements.txt  
 
 ### Experiments
 
