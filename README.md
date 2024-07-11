@@ -159,8 +159,6 @@ Topics like Cultural Diversity, Firearms Public Safety, and Law Enforcement tend
 
 ## References
 
->Include a list of academic and professional sources you cited in your report, using an appropriate citation format to ensure clarity and proper attribution.
-
 - [1] Grootendorst, M., 2022. BERTopic: Neural topic modeling with a class-based TF-IDF procedure. arXiv preprint arXiv:2203.05794.
 
 - [2] Grootendorst, M., 2021. Interactive Topic Modeling with BERTopic. https://towardsdatascience.com/interactive-topic-modeling-with-bertopic-1ea55e7d73d8
