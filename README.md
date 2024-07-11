@@ -81,7 +81,7 @@ GPU: Intel(R) UHD Graphics
 - Python version: Python 3.9.13   
 All analyses for Network Analysis were written in .ipynb files, coded and run in Visual Studio Code 1.91.0
 
-To install Python libraries with the correct version run the following terminal commands:
+To install Python libraries for Network Analysis with the correct version run the following command in terminal:
 ```bash
 pip install -r requirements_networkanalysis.txt  
 ```
@@ -130,6 +130,6 @@ Sentiment analysis: Topics like Cultural Diversity, Firearms Public Safety, and 
 
 - [2]
 
-- [3] Buntain, C.; Golbeck, J. Identifying social roles in reddit using network structure. In Proceedings of the 23rd International Conference on World Wide Web, Seoul, Republic of Korea, 7–11 April 2014; pp. 615–620.**doi:10.1145/2567948.2579231**
+- [3] Buntain, C.; Golbeck, J. Identifying social roles in reddit using network structure. In Proceedings of the 23rd International Conference on World Wide Web, Seoul, Republic of Korea, 7–11 April 2014; pp. 615–620.__doi:10.1145/2567948.2579231__
 
 - [4] Samridh Prasad, reddit-analysis, (2019), GitHub repository, https://github.com/samridhprasad/reddit-analysis
