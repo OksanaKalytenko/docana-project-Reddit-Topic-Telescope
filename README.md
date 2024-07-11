@@ -36,7 +36,7 @@ The complete data from the subreddit 'explainlikeimfive' can be found in a .zip 
 
 ### Setup 
 
-All the notebooks are in the [/code](/code) folder with their requirements.txt files. After installing the requirements the notebooks can be run in any compatible environment.
+All the notebooks are in the [/code](https://github.com/OksanaKalytenko/docana-project-Reddit-Topic-Telescope/tree/main/code) folder with their requirements.txt files. After installing the requirements the notebooks can be run in any compatible environment.
 
 #### Data Preprocessing Setup
 
@@ -48,6 +48,7 @@ pip install -r requirements_preprocessing.txt
 #### Topic Modeling Setup
 
 - Used environment: Google Colab with Python Version 3 and T4 accelerator
+
 To install Python libraries for Topic Modeling using BERTopic with the correct version run the following command in the terminal:
 ```bash
 pip install -r requirements_topic.txt
