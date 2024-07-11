@@ -64,6 +64,10 @@ Topic Modeling Setup
 
 Sentiment Analysis Setup 
 
+To install Python libraries with the correct version run the following command in the terminal:
+```bash
+pip install -r requirements_sentiment.txt  
+```
 Network Analysis Setup  
 software:   
 hardware environment: Microsoft Windows Version 22H2 (OS Build 19045.4529)  
@@ -78,6 +82,10 @@ pip install -r requirements.txt
 
 [Report how you conducted the experiments. We suggest including detailed explanations of the preprocessing steps and model training in your project. For the preprocessing, describe  data cleaning, normalization, or transformation steps you applied to prepare the dataset, along with the reasons for choosing these methods. In the section on model training, explain the methodologies and algorithms you used, detail the parameter settings and training protocols, and describe any measures taken to ensure the validity of the models.]
 
+For the sentiment analysis experiments we were using VADER and the Lexicon-based text analyzer Afinn.
+Both VADER and Afinn do not necessitate training but uses a fixed sentiment lexicon for analysis. While we lacked human-labeled data for accuracy comparison, VADER demonstrated better handling of informal language, emojis, nuanced sentiments, and sarcasm interpretation. These characteristics make VADER particularly suitable for analyzing social media and informal text data.
+
+
 ## Results and Discussion
 
 [Present the findings from your experiments, supported by visual or statistical evidence. Discuss how these results address your main research question.]
@@ -85,6 +93,7 @@ pip install -r requirements.txt
 Topic Modeling Setup
 
 Sentiment Analysis Setup 
+Our analysis reveals that topics such as Cultural Diversity and Ethnic Background, Firearms Public Safety, Human Anatomy and Health, Immunology and Diseases, Law Enforcement, Affairs and Religious Extremism, Welfare, and Diplomatic Relations tend to have more negative sentiment on average.
 
 Network Analysis
 
@@ -92,6 +101,10 @@ Network Analysis
 ## Conclusion
 
 [Summarize the major outcomes of your project, reflect on the research findings, and clearly state the conclusions you've drawn from the study.]
+
+Sentiment analysis: Topics like Cultural Diversity, Firearms Public Safety, and Law Enforcement tend to have more negative feelings due to the controversial nature of these discussions, which often touch on sensitive and polarizing issues. These discussions often cause strong negative emotions and frustrations in the community, showing bigger societal issues like discrimination, racism, politics, and religion. Understanding these feelings helps us track public opinion and predict how the community might react.
+
+
 
 ## Contributions
 
