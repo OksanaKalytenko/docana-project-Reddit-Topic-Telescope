@@ -119,17 +119,16 @@ VADER is known for handling informal language, emojis, nuanced sentiments, and s
 #### Summary of Network Analysis Workflow
 
 - ##### Exploration and Preprocessing of Data
-The data used in the first step of the Network Analysis part of the project consisted of a sample (10000 posts) of the raw subreddit dataset, which can be found in our .zip data folder as a .csv file 'webis_tldr_clean'. This data then underwent the same general filtering and preprocessing criteria enlisted at the beginning of this section.
+The data used in the first step of the Network Analysis part of the project consisted initially of the complete provided Reddit dataset. This data then underwent the same general filtering and preprocessing criteria enlisted at the beginning of this section, and a sample of 10000 posts was then used for further analysis, this data can be found in our .zip data folder as a .csv file 'webis_tldr_clean'.
 Firstly, we explored the possibility of using all subreddit data for the network analysis, this implied understanding the number of authors (nodes of our graph) and number of posts (node sizes) per subreddit (each same-colored edge connecting all authors active in a specific subreddit).  
 We subsequently plotted a Network Graph to visualize the properties of the dataset and confirm the suitability of the 'explainlikeimfive' subreddit selection also on the dimensions important for further network analysis.
-For this part of analysis we relied on a sub-sample (100 most visited subreddits) of the dataset for visualization purposes.
+For this part of analysis we relied on a sub-sample (100 most visited subreddits) of the dataset for visualization.
 These analyses can be found in the following file: AllData_Network_Analysis.ipynb
 
-- ##### Network Analysis on 
-This part of the analysis was conducted on the resulting data of the previous two analysis steps: Topic Modeling and Sentiment Analysis. The combined results are stored in the file 'webis_tldr_subreddit(topic+sentiment).csv'. This data then underwent the same general filtering and preprocessing criteria enlisted at the beginning of this section.
-We plotted the Network Graph, similarly to the previous plot, were nodes represent different users and node size represents the number of posts per user, however in this case edges represented different topics (not subreddits as above) and nodes were
-colored on the basis of the average sentiment of each user's posts.
-Also, for this part of analysis we relied on a sample (1000 posts) of the dataset for visualization purposes.
+- ##### Network Analysis on selected Subreddit
+This part of the analysis was conducted on the resulting data of the previous two analysis steps (Topic+Sentiment Analysiss) on the subreddit data stored in in our .zip data folder as a .csv file 'explainlikeimfive'. The combined results are stored instead in the file 'webis_tldr_subreddit(topic+sentiment).csv'. This data underwent the same general filtering and preprocessing criteria enlisted at the beginning of this section.
+We plotted the Network Graph, similarly to the previous plot, in which nodes represent different users and node size represents the number of posts per user, however, in this case edges represented different topics (not subreddits, as above) and nodes were colored on the basis of the average sentiment of each user's overall posts.
+Also, for this part of analysis we relied on a sample (1000 posts) of the dataset for visualization.
 These analyses can be found in the following file: Subreddit_Network_Analysis.ipynb
 
 
@@ -153,13 +152,14 @@ Our analysis reveals that topics such as Cultural Diversity and Ethnic Backgroun
 
 ### Network Analysis
 
-Our main findings in this conclusive part of our project were that most users only participated in the subreddit with one post and therefore were also interested in only one topic on average. There do seem to exist however few users which are very active and participanting in conversations on multiple topics, these might be the "answer-persons" [5], a well-known role present in many other online platforms. Overall there seemed to be little interaction between users and a focus by each user on a specific select topic of interest, potentially indicating that Reddit is not mainly used to connect people with each other but to retrieve information and opinions, without extensive and repeated discussion among users.
+Our main findings in this conclusive part of our project were that most users only participated in the subreddit with one post and (therefore) were also interested in only one topic on average. There do seem to exist however few users which are very active and participanting in conversations on multiple topics, these might be the "answer-persons" [5], a well-known role present in many other online platforms. Overall there seemed to be little interaction between users and a focus by each user on a specific select topic, potentially indicating that Reddit is not mainly used to connect with people but to retrieve information and opinions without extensive and repeated discussion among users.
 Therefore the distribution of user activity seems to be in line with our chosen reference paper [5] and project [6], which show similar results.
 A few questions emerged from the network analysis:
-- Do the few "macro-users" or so-called "answer-persons" influence the vast majority of other users, which are in the order of thousands? If so to what degree and in which modality (both sentiment and topic)?
-- Could many users bots? Considering our reference paper [5] this is not the case, however it might be interesting to explore this possibility through models that might distinguish human-generated text and artificially created text.
+- Do the few "macro-users" or so-called "answer-persons" (less than ten on average in our samples) influence the vast majority of other users (in the order of thousands)? If so, to what degree and in which modality, both sentiment and topic?
+- Could many users actually be bots? Considering our reference paper [5] this does not seem to be the case, however it might be interesting to explore this possibility through models that might distinguish human-generated text and artificially created text.
 - Do the properties observed in the timeframe of our dataset (2006-2016) still apply today, or has the use of this platform changed?
 - Does the distribution of activity among users on Reddit differ from other online platforms?
+
 These findings and related questions provide insights into potential further analyses.
 
 
@@ -175,9 +175,9 @@ Topics like Cultural Diversity, Firearms Public Safety, and Law Enforcement tend
 
 ### Network Analysis
 
-We were able to combine Topic Modeling and Sentiment Analysis through Network Analysis in order to find non-textual properties of our dataset starting from the users' posts only. These results are also in line with the findings of the reference paper and project for this conclusive part of our analyses.  
+In this conclusive part of our analyses we were able to combine Topic Modeling and Sentiment Analysis through Network Analysis in order to find non-textual properties of our dataset starting from the users' posts only. Our results, discussed in the previous section, also seem to be in line with the findings of our reference paper [5] and project [6]. 
 
-Overall, we were able to test also in our chosen subreddit the effectiveness of computational linguistic tools in providing insights on a dataset on a variety of dimensions, including non strictly-textual properties.
+Overall, we were able to test in our chosen subreddit the effectiveness of computational linguistic tools in providing insights on a dataset on a variety of dimensions, including non strictly-textual properties.
 
 ## Contributions
 
