@@ -197,6 +197,6 @@ Overall, we were able to test in our chosen subreddit the effectiveness of compu
 
 - [4] Roopam Srivastava, Prof. (Dr.) P.K. Bharti, Dr. Parul Verma, (2022). Comparative Analysis of Lexicon and Machine Learning Approach for Sentiment Analysis. (IJACSA) International Journal of Advanced Computer Science and Applications
 
-- [5] Buntain, C.; Golbeck, J. Identifying social roles in reddit using network structure. In Proceedings of the 23rd International Conference on World Wide Web, Seoul, Republic of Korea, 7–11 April 2014; pp. 615–620. **doi:10.1145/2567948.2579231**
+- [5] Buntain, C.; Golbeck, J. Identifying social roles in reddit using network structure. In Proceedings of the 23rd International Conference on World Wide Web, Seoul, Republic of Korea, 7–11 April 2014; pp. 615–620.
 
 - [6] Samridh Prasad, reddit-analysis, (2019), GitHub repository, https://github.com/samridhprasad/reddit-analysis
