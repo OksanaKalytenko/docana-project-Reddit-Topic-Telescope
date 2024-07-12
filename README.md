@@ -10,7 +10,7 @@ This project analyses topics in the “ExplainLikeImFive” subreddit to underst
 
 With the provided dataset we were looking for inspirations on what to achieve with this kind of data. After some research we found commercial dashboard tools that analyse topics and sentiment in documents.
 We liked the idea of visualising topics together with sentiment to show hidden meaning inside texts written by different users.
-This served as our main inspiration, so we split this analysis in three different parts:
+This served as our main inspiration and analysis was split into three different parts:
 
 - Topic Modeling
 - Sentiment Analysis
